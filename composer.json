@@ -1,0 +1,22 @@
+{
+    "name": "delssajry/sculpin-listss-bundle",
+    "description": "Sculpin Lists Bundle",
+    "homepage": "https://sculpin.io",
+    "keywords": ["pages", "blogging", "blog", "static", "site"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tatiana Drozdova",
+            "email": "delssajri@gmail.com",
+            "homepage": "http://fabarea.tk"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Delssajri\\Sculpin\\Bundle\\ListsBundle": "" }
+    },
+    "target-dir": "Delssajri/Sculpin/Bundle/ListsBundle",
+    "minimum-stability": "beta"
+}
