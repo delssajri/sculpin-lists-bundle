@@ -1,5 +1,5 @@
 {
-    "name": "delssajry/sculpin-listss-bundle",
+    "name": "delssajri/sculpin-lists-bundle",
     "description": "Sculpin Lists Bundle",
     "homepage": "https://sculpin.io",
     "keywords": ["pages", "blogging", "blog", "static", "site"],
@@ -8,7 +8,7 @@
         {
             "name": "Tatiana Drozdova",
             "email": "delssajri@gmail.com",
-            "homepage": "http://fabarea.tk"
+            "homepage": "http://github.com/delssajri"
         }
     ],
     "require": {
