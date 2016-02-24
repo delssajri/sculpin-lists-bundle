@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Dellsajri\Sculpin\Bundle\ListsBundle\DependencyInjection;
+namespace Delssajri\Sculpin\Bundle\ListsBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
