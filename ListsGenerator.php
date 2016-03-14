@@ -36,6 +36,14 @@ class ListsGenerator implements EventSubscriberInterface
                 'target'  => 'benefits'
             ),
             array(
+                'pattern' => '_partners',
+                'target'  => 'partners'
+            ),
+            array(
+                'pattern' => '_media',
+                'target'  => 'media'
+            ),
+            array(
                 'pattern' => '_awards',
                 'target'  => 'awards'
             )
@@ -90,6 +98,7 @@ class ListsGenerator implements EventSubscriberInterface
             $items = array(
                 'name' => $templateName,
                 'file' => $fileName,
+                'path' => $pathSegments
             );
             $this->addListItem($this->listitems, $target, $items);
 
@@ -108,7 +117,6 @@ class ListsGenerator implements EventSubscriberInterface
     protected function setListItems(SourceSet $sourceSet)
     {
 
-        // Second loop to set the menu which was initialized during the first loop
         foreach ($sourceSet->allSources() as $source) {
 
             if ($source->isGenerated() || ! $source->canBeFormatted()) {
@@ -122,11 +130,27 @@ class ListsGenerator implements EventSubscriberInterface
 
     protected function addListItem(array &$listitems, $target, array $items)
     {
-        if (array_key_exists($target, $listitems)) {
-            array_push($listitems[$target], $items);
-        } else {
-            $listitems[$target] = array($items);
+        if (!array_key_exists($target, $listitems)) {
+            $listitems[$target] = array();
         }
+        $a = &$listitems[$target];
+
+        $aa = &$a;
+        $pathSegments = $items['path'];
+
+        $auxPathSegments = explode('_', $items['name']);
+        array_pop($auxPathSegments);
+        $pathSegments = array_merge($pathSegments, $auxPathSegments);
+
+        while ( ! empty($pathSegments) ) {
+            $segment = array_shift($pathSegments);
+            if (!array_key_exists($segment, $aa)) {
+                $aa[$segment] = array();
+            }
+            $aa = &$aa[$segment];
+        }
+
+        array_push($aa, $items);
     }
 
 }
